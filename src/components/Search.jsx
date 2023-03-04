@@ -33,7 +33,7 @@ export const Search = () => {
     try {
       const res = await getDoc(doc(db, 'chats', combinedId));
 
-      if (!res.exists()) {
+      if (true) {
         //create a chat in chats collection
         console.log('currentUser', currentUser);
         console.log('user', user);
@@ -43,7 +43,7 @@ export const Search = () => {
         await updateDoc(doc(db, 'userChats', currentUser.uid), {
           [combinedId + '.userInfo']: {
             uid: user.uid,
-            name: user.displayName,
+            name: user.name,
             photoURL: user.photoURL,
           },
           [combinedId + '.date']: serverTimestamp(),
